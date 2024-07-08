@@ -1,3 +1,12 @@
+/**
+ * @author Jatin Pant<https://github.com/notjatin>
+ * @explanation
+ * Tower of brahma (aka tower of hanoi) is a mathematical ancient 
+ * problem featuring 3 rods and n disks where we have to transfer
+ * disks from one rod to another using a third spare rod.
+ * @see https://en.wikipedia.org/wiki/Tower_of_Hanoi
+ */
+
 const steps = []
 
 const tower_of_brahma = (no_of_disks) => {
