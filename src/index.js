@@ -1,6 +1,6 @@
-import { populate } from "./populate.js";
-import { select } from "./select.js";
-import { printPopulation } from "./utils.js";
+import { populate } from "./populate.js"
+import { select } from "./select.js"
+import { logPopulation } from "./utils.js"
 /**
  * @author Jatin-Pant<https://github.com/notjatin>
  * @explanation
@@ -15,14 +15,14 @@ import { printPopulation } from "./utils.js";
  * @param {string} : alphabet sequence
  */
 
-const ALPHABET = "ABCDEFGHIJKLMNOPQUSTUVWXYZ ";
-const TARGET = "JATIN PANT";
-let population = [];
+const ALPHABET = "ABCDEFGHIJKLMNOPQUSTUVWXYZ "
+const TARGET = "JATIN PANT"
+let population = []
 
 /**
  * Looping over 10 generations
  */
-let gen = 0;
+let gen = 0
 populate(population, 100, ALPHABET, TARGET)
-printPopulation(population)
-select(population)
+logPopulation(population);
+select(population, TARGET, ALPHABET)

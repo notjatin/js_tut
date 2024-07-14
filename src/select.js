@@ -1,6 +1,7 @@
-import { printPopulation, crossover } from "./utils.js";
+import { crossover, getRandomWordObj } from "./utils.js";
 
-export const select = (population) => {
+export const select = (population, target, alphabet) => {
+  // sorts the population in the reverse order of their fitness
   const sortedPopulation = population
     .slice()
     .sort((item1, item2) => item1.fitness - item2.fitness);
@@ -8,12 +9,15 @@ export const select = (population) => {
   const newPopulation = new Array(population.length);
   for (let i = 0; i < population.length; i++) {
     if (i < 50) {
-      newPopulation[i].label = crossover(population[i].label, population[50 + i].label);
-    } else if (i < 90) {
-      newPopulation[i] = population[i];
+      let item = {};
+      item = crossover(population[i], population[50 + i], target);
+      newPopulation.push(item);
+    } else if (i < 75) {
+      newPopulation.push(getRandomWordObj(alphabet, target));
     } else {
-      newPopulation[i] = sortedPopulation[i];
+      newPopulation.push(sortedPopulation[i]);
     }
   }
-  printPopulation(newPopulation)
+  console.log(newPopulation);
+  return newPopulation;
 };
